@@ -18,7 +18,7 @@ export const createNeed = async (req, res) => {
     res.status(201).json(result.rows[0]);
   } catch (error) {
     console.error("Error creating need:", error);
-    res.status(500).json({ error: true, message: "Internal Server Error", status: 500 });
+    res.status(500).json({ error: true, message: `DB Error: ${error.message}`, status: 500 });
   }
 };
 
@@ -31,7 +31,7 @@ export const getNeeds = async (req, res) => {
     res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error getting needs:", error);
-    res.status(500).json({ error: true, message: "Internal Server Error", status: 500 });
+    res.status(500).json({ error: true, message: `DB Error: ${error.message}`, status: 500 });
   }
 };
 
@@ -48,7 +48,7 @@ export const getNeedById = async (req, res) => {
     res.status(200).json(result.rows[0]);
   } catch (error) {
     console.error("Error getting need by ID:", error);
-    res.status(500).json({ error: true, message: "Internal Server Error", status: 500 });
+    res.status(500).json({ error: true, message: `DB Error: ${error.message}`, status: 500 });
   }
 };
 
@@ -74,6 +74,6 @@ export const updateNeedStatus = async (req, res) => {
     res.status(200).json(result.rows[0]);
   } catch (error) {
     console.error("Error updating need status:", error);
-    res.status(500).json({ error: true, message: "Internal Server Error", status: 500 });
+    res.status(500).json({ error: true, message: `DB Error: ${error.message}`, status: 500 });
   }
 };
